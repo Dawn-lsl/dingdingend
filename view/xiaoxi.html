@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>消息</title>
+    <script src=".././font_dingding/iconfont.js"></script>
+    <style>
+        html {
+            font-size: 10px;
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        ul,
+        p,
+        body,
+        h2,
+        h1 {
+            padding: 0;
+            margin: 0;
+        }
+
+        img {
+            display: block;
+            border: none;
+        }
+
+        body {
+            margin-bottom: 100px;
+            margin-top: 4rem;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .bot {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: 9;
+            background-color: rgb(242, 241, 246);
+            border-top: 1px solid rgb(224, 225, 227);
+        }
+
+        .heng {
+            background-color: rgb(216, 217, 221);
+            height: 0.4rem;
+            width: 1.9rem;
+            border-radius: 1.5rem;
+            margin: auto;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        #bnav {
+            width: 100%;
+            background-color: rgb(242, 241, 246);
+            display: flex;
+        }
+
+        #bnav>li {
+            width: 20%;
+            text-align: center;
+            padding-bottom: 0.7rem;
+        }
+
+        #bnav svg {
+            font-size: 1.9rem;
+            line-height: 2.3rem;
+            padding-top: 0.4rem;
+            padding-bottom: 0.4rem;
+        }
+
+        #bnav p {
+            color: rgb(112, 113, 115);
+            font-size: 1.1rem;
+            line-height: 1.8rem;
+        }
+
+        .head {
+            display: flex;
+            width: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: #fff;
+        }
+
+        .head img {
+            margin-left: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            margin-right: 1rem;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.5rem;
+
+        }
+
+        .head svg {
+            flex-grow: 1;
+            font-size: 2.5rem;
+            line-height: 2rem;
+            height: 4rem;
+            margin-right: 1rem;
+            margin-left: 1rem;
+        }
+
+        .head .zhuangtai {
+            flex-grow: 1;
+            font-size: 1rem;
+            line-height: 2rem;
+            height: 4rem;
+            margin: 0;
+        }
+
+        .head p {
+            line-height: 4rem;
+            font-size: 1rem;
+            flex-grow: 10;
+        }
+
+        .jg {
+            height: 1em;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            margin-right: 1rem;
+            width: 0.2rem;
+            background-color: rgb(235, 236, 238);
+        }
+
+        #search {
+            width: 94%;
+            background-color: rgb(235, 236, 238);
+            margin-left: 3%;
+            margin-right: 3%;
+            border-radius: 1rem;
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        #search div {
+            font-size: 2rem;
+            color: rgb(147, 151, 154);
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1rem;
+            padding-right: 0.5rem;
+        }
+
+        #search p {
+            font-size: 1.8rem;
+            color: rgb(147, 151, 154);
+            line-height: 3.6rem;
+        }
+
+        #mid {
+            display: flex;
+            width: 96%;
+            font-size: 1.5rem;
+            color: rgb(117, 118, 120);
+            padding-left: 3%;
+            border-bottom: 1px solid rgb(236, 236, 238);
+            top: 4.1rem;
+            left: 0;
+            background-color: #fff;
+        }
+
+        #mid>div {
+            display: flex;
+            width: 30%;
+            flex-grow: 2;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        #mid div:nth-of-type(2) {
+            border-left: 1px solid rgb(235, 236, 238);
+            border-right: 1px solid rgb(235, 236, 238);
+        }
+        .mid1{
+            display: flex;
+            font-size: 1.8rem;
+            line-height: 4rem;
+            color: rgb(200, 200, 200);
+            margin-left: 3%;
+            border-bottom: 1px solid rgb(236, 236, 238);
+        }
+        .mid1>div:nth-of-type(1){
+            flex-grow: 2;
+            display: flex;
+        }
+        .mid1>div:nth-of-type(1)>div{
+            margin-right: 2.5rem;
+        }
+        .mid1>div:nth-of-type(2){
+            margin-right: 1.5rem;
+        }
+        .touxiang {
+            width: 4rem;
+            height: 4rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            margin-bottom: 0.6rem;
+            border-radius: 1rem;
+            margin-top: 0.6rem;
+        }
+        .main>div{
+            display: flex;
+        }
+        .main>div>div>div:nth-of-type(1){
+            display: flex;
+            margin-top: 0.6rem;
+        }
+        .main>div>div>div>div:nth-of-type(1){
+            flex-grow: 2;
+        }
+        .main>div>div>div>div:nth-of-type(2){
+            margin-right: 1rem;
+            color:rgb(162, 163, 165);
+        }
+        .main>div>div>div>div:nth-of-type(1){
+            letter-spacing: 0.1rem;
+            font-size: 1.5rem;
+        }
+        .main>div>div:nth-of-type(2){
+            flex-grow: 2;
+        }
+        .main>div>div>div:nth-of-type(2){
+            color:rgb(162, 163, 165);
+            font-size: 1.3rem;
+            line-height: 2.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <img src="../img/touxiang.jpg">
+        <div class="jg"></div>
+        <div>
+            <svg class="icon zhuangtai" aria-hidden="true">
+                <use xlink:href="#icon-chat"></use>
+            </svg>
+        </div>
+        <p>添加工作状态...></p>
+        <div>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-24gf-bubble"></use>
+            </svg>
+        </div>
+        <div>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-shipintonghua"></use>
+            </svg>
+        </div>
+        <div>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-jiahao1"></use>
+            </svg>
+        </div>
+    </div>
+    <a href="#">
+        <div id="search">
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-31sousuo"></use>
+                </svg>
+            </div>
+            <p>搜索</p>
+        </div>
+    </a>
+    <div id="mid">
+        <div>
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-rili"></use>
+                </svg>
+            </div>
+            <p>日历</p>
+        </div>
+
+        <div>
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-daiban"></use>
+                </svg>
+            </div>
+            <p>待办</p>
+        </div>
+
+        <div>
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-daiban"></use>
+                </svg>
+            </div>
+            <p>DING</p>
+        </div>
+    </div>
+    <div class="mid1">
+        <div>
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-aite"></use>
+                </svg>
+            </div>
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-xingxing"></use>
+                </svg>
+            </div>
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-shizhongclock74"></use>
+                </svg>
+            </div>
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-hongbao"></use>
+                </svg>
+            </div>
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-wenjian"></use>
+                </svg>
+            </div>
+        </div>
+        <div>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-qita"></use>
+            </svg>
+        </div>
+    </div>
+    <div class="main">
+        <div>           
+                <div>
+                    <img class="touxiang" src=".././img/touxiang.jpg" >
+                </div>
+                <div>
+                    <div>
+                        <div><p>新手体验群</p></div>
+                        <div><p>2020/10/25</p></div>
+                    </div>
+                    <div>xxx提交了作业xxxxxx</div>
+                </div>           
+        </div>
+    </div>
+    <div class="bot">
+        <div class="heng"></div>
+        <ul id="bnav">
+            <li>
+                <a href="./xiaoxi.html">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-xiaoxi"></use>
+                        </svg>
+                        <p>消息</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./xiezuo.html">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-gongwenbao"></use>
+                        </svg>
+                        <p>协作</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./zhihuixiaoyuan.html">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-zhihuixiaoyuan"></use>
+                        </svg>
+                        <p>智慧校园</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./tongxunlu.html">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-tongxunlu"></use>
+                        </svg>
+                        <p>通讯录</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./wode1.html">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-wode"></use>
+                        </svg>
+                        <p>我的</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // var jlist = document.querySelector(".main");
+        // json.forEach(function (v, i) {
+        //     var nli = document.createElement("div"); /* 创建li元素 */
+    
+        //     nli.innerHTML = `
+        //     <div>
+        //             <img class="touxiang" src="${v.img}" >
+        //         </div>
+        //         <div>
+        //             <div>
+        //                 <div><p>${v.type}</p></div>
+        //                 <div><p>${v.time}</p></div>
+        //             </div>
+        //             <div>${v.data}</div>
+        //         </div>  `;
+        //     //es6新的字符串语法，内部可包括引号，包括变量${}
+        //     jlist.appendChild(nli);
+        //     //在jlist的内部的最后增加nli。
+        // });
+        var jlist = document.querySelector(".main");
+        var xmlhttp;
+		if (window.XMLHttpRequest) {
+			//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			// IE6, IE5 浏览器执行代码
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function () {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				//xmlhttp.responseText;
+				//你的ajax代码写在这里，其他位置除了open的前两个参数都不需要也不要改变。
+				//ajax加载成功之后的代码执行位置
+				// document.write(xmlhttp.responseText);
+				// console.log(xmlhttp.responseText)
+                var jarr=JSON.parse(xmlhttp.responseText);
+                for(var v of jarr){
+                    var ndiv=document.createElement("div");
+                    ndiv.innerHTML=`
+                    <div>
+                    <img class="touxiang" src="${v.img}" >
+                </div>
+                <div>
+                    <div>
+                        <div><p>${v.type}</p></div>
+                        <div><p>${v.time}</p></div>
+                    </div>
+                    <div>${v.data}</div>
+                </div>  
+                    `;
+                    jlist.appendChild(ndiv);
+                }
+				//只有用http的方式查看网页的运行结果才可以避免用本地网页的方式查看ajax运行结果。
+				//vs code中可以使用liver server，post请求用专业的HTTP服务器
+			}
+		}
+		xmlhttp.open("GET", "http://rap2api.taobao.org/app/mock/295596/index/data", true);
+		xmlhttp.send();
+    </script>
+    <script>
+        window.onscroll=function(){
+            var st=document.documentElement.scrollTop||document.body.scrollTop;
+            console.log(st);
+            if(st>search.offsetHeight)  //可写固定值,如1000
+            {
+                
+                mid.style.position="fixed";
+                
+                //复杂的改变使用classList
+            }
+            else{
+                
+                mid.style.position="static";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Document</title>
+    <script src=".././font_dingding/iconfont.js"></script>
+    <style>
+        html {
+            font-size: 10px;
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        ul,
+        p,
+        body,
+        h2,
+        h1 {
+            padding: 0;
+            margin: 0;
+        }
+
+        img {
+            display: block;
+            border: none;
+        }
+
+        body {
+            margin-bottom: 100px;
+            margin-top: 4rem;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .bot {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: 9;
+            background-color: rgb(242, 241, 246);
+            border-top: 1px solid rgb(224, 225, 227);
+        }
+
+        .heng {
+            background-color: rgb(216, 217, 221);
+            height: 0.4rem;
+            width: 1.9rem;
+            border-radius: 1.5rem;
+            margin: auto;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        #bnav {
+            width: 100%;
+            background-color: rgb(242, 241, 246);
+            display: flex;
+        }
+
+        #bnav>li {
+            width: 20%;
+            text-align: center;
+            padding-bottom: 0.7rem;
+        }
+
+        #bnav svg {
+            font-size: 1.9rem;
+            line-height: 2.3rem;
+            padding-top: 0.4rem;
+            padding-bottom: 0.4rem;
+        }
+
+        #bnav p {
+            color: rgb(112, 113, 115);
+            font-size: 1.1rem;
+            line-height: 1.8rem;
+        }
+
+        .head {
+            background-color: #fff;
+            display: flex;
+            position: fixed;
+            left: 0;
+            top: 0;
+            font-size: 2rem;
+            font-weight: bolder;
+            width: 100%;
+        }
+
+        .head p {
+            margin-top: 1rem;
+            margin-left: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .head>a:nth-of-type(2) p {
+            border-bottom: 3px solid #000;
+        }
+
+        .head>a:nth-of-type(1) p {
+            color: rgb(117, 118, 120);
+        }
+
+        .main {
+            width: 96%;
+            margin: auto;
+        }
+
+        .main>div:nth-of-type(1) {
+            display: flex;
+            line-height: 4.5rem;
+        }
+
+        .main div:nth-of-type(1) img {
+            margin-left: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            margin-right: 1rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 1.25rem;
+        }
+
+        .main>div:nth-of-type(2) {
+            margin-left: 1rem;
+        }
+
+        .main>div:nth-of-type(2) p {
+            color: rgb(162, 163, 165);
+            margin-bottom: 1rem;
+        }
+
+        .nianji {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .nianji div {
+            flex-grow: 1;
+            width: 15%;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            height: 6rem;
+            text-align: center;
+            background-color: rgb(248, 248, 248);
+            border-radius: 0.5rem;
+        }
+
+        .nianji svg {
+            background-color: rgb(0, 136, 254);
+            padding: 0.75rem;
+            font-size: 1.5rem;
+            border-radius: 1.5rem;
+            color: #fff;
+            margin-top: 1rem;
+        }
+
+        .nianji p {
+            line-height: 2.5rem;
+        }
+
+        .tt {
+            display: flex;
+            border-bottom: 1px solid rgb(235, 236, 238);
+        }
+
+        .tt>span {
+            width: 120px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .tt>.cur {
+            font-weight: bold;
+            background-color: #fff;
+            margin-bottom: -1px;
+            color: #000;
+            border-bottom: 2px solid #000;
+        }
+
+        .tc {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .tuijian {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .tuijian div {
+            margin: 1rem;
+            border-radius: 1.5rem;
+            background-color: rgb(248, 248, 248);
+        }
+
+        .tuijian img {
+            width: 100%;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+        }
+
+        .tuijian p {
+            padding-left: 1rem;
+            padding-top: 0.5rem;
+        }
+
+        .tuijian p:nth-of-type(2) {
+            padding-left: 1rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            color: rgb(158, 159, 161);
+            font-size: 0.5rem;
+        }
+
+        .guanzhu>div:nth-of-type(1) {
+            width: 100%;
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .tubiao img {
+            width: 30px;
+            height: 30px;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            margin-bottom: 0.4rem;
+            border-radius: 1rem;
+            margin-top: 1rem;
+        }
+
+        .right {
+            flex-grow: 1;
+        }
+
+        .right p {
+            color: #fff;
+            flex-grow: 1;
+            background-color: rgb(0, 136, 254);
+            text-align: center;
+            line-height: 2rem;
+            margin-top: 1.5rem;
+            margin-right: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .limp {
+            border-bottom: 1px solid rgb(228, 228, 230);
+            display: flex;
+            flex-grow: 1000;
+        }
+
+        .limp>div:nth-of-type(1) {
+            border-bottom: 1px solid rgb(228, 228, 230);
+            flex-grow: 10;
+        }
+
+        .limp>div:nth-of-type(1) p:nth-of-type(1) {
+            margin-top: 1rem;
+        }
+
+        .limp>div:nth-of-type(1) p:nth-of-type(2) {
+            color: rgb(162, 163, 165);
+        }
+
+        .imp {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <a href="./xiezuo.html"><p>协作</p></a>
+        <a href="./xuexi.html"><p>学习</p></a>
+    </div>
+    <div class="main">
+        <div>
+            <div>
+                <img src=".././img/touxiang.jpg">
+            </div>
+            <h2>李帅龙</h2>
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-xiajiantou"></use>
+                </svg>
+            </div>
+        </div>
+        <div>
+            <h2>选择学习阶段</h2>
+            <p>获得教育方法，学习资料的精准推荐</p>
+        </div>
+        <div class="nianji">
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-tongxunlu"></use>
+                </svg>
+                <p>幼儿园</p>
+            </div>
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-tongxunlu"></use>
+                </svg>
+                <p>小学</p>
+            </div>
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-tongxunlu"></use>
+                </svg>
+                <p>中学</p>
+            </div>
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-tongxunlu"></use>
+                </svg>
+                <p>高中</p>
+            </div>
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-tongxunlu"></use>
+                </svg>
+                <p>其他</p>
+            </div>
+        </div>
+    </div>
+    <div class="tab">
+        <div class="tt">
+            <span class="cur">推荐</span>
+            <span>关注</span>
+            <span>科普</span>
+            <span>兴趣</span>
+            <span>家长课</span>
+        </div>
+        <div class="tc show">
+            <div class="tuijian">
+                <div>
+                    <img src=".././img/wulidasha.png">
+                    <p>物理的大厦xxxxxxxxxxxxxxxx</p>
+                    <p>金十数据·数鸽</p>
+                </div>
+                <div>
+                    <img src=".././img/zhisi.png">
+                    <p>7mg蓖麻致死，为什么还不禁止种植</p>
+                    <p>科普小姐姐</p>
+                </div>
+            </div>
+        </div>
+        <div class="tc">
+            <div class="guanzhu">
+                <div>
+                    <h2>暂无关注动态</h2>
+                    <p>快关注他们，获取最近课程吧~</p>
+                </div>
+                <div class="imp">
+                    <div class="tubiao">
+                        <img src=".././img/touxiang.jpg" alt="">
+                    </div>
+                    <div class="limp">
+                        <div>
+                            <p>新文达教育</p>
+                            <p>传播优质教育咨询</p>
+                        </div>
+                        <div class="right">
+                            <p>关注</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tc">3</div>
+        <div class="tc">4</div>
+        <div class="tc">5</div>
+    </div>
+    <div class="bot">
+        <div class="heng"></div>
+        <ul id="bnav">
+            <li>
+                <a href="./xiaoxi.html">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-xiaoxi"></use>
+                        </svg>
+                        <p>消息</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./xiezuo.html">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-gongwenbao"></use>
+                        </svg>
+                        <p>学习</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./zhihuixiaoyuan.html">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-zhihuixiaoyuan"></use>
+                        </svg>
+                        <p>智慧校园</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./tongxunlu.html">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-tongxunlu"></use>
+                        </svg>
+                        <p>通讯录</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-wode"></use>
+                        </svg>
+                        <p>我的</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        //dom代码写在body的最后，或者onload函数里
+        var tab = document.querySelector(".tab");
+        //找到第一个.tab
+        var tt = tab.getElementsByClassName("tt")[0];
+        var span = tt.querySelectorAll("span");
+        var tc = tab.querySelectorAll(".tc");
+        console.log(tab, tt, span, tc);
+
+        for (var i = 0; i < span.length; i++) {
+
+            span[i].index = i;
+
+            span[i].onclick = function () {
+                //不能使用i，使用this
+                //所有的span，都去除cur类，所有的tc都隐藏
+                for (var j = 0; j < span.length; j++) {
+                    span[j].classList.remove("cur");
+                    // tc[j].classList.remove("show");
+                    tc[j].style.display = "none"; /*所有的tc都隐藏 */
+                }
+                this.classList.add("cur");
+                tc[this.index].style.display = "block";
+
+
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>通讯录</title>
+    <script src="../font_dingding/iconfont.js"></script>
+    <style>
+        html {
+            font-size: 10px;
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        ul,
+        p,
+        body,
+        h2,
+        h1 {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            margin-bottom: 100px;
+            margin-top: 4.75rem;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .bot {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: 9;
+            background-color: rgb(242, 241, 246);
+            border-top: 1px solid rgb(224, 225, 227);
+        }
+
+        .heng {
+            background-color: rgb(216, 217, 221);
+            height: 0.4rem;
+            width: 1.9rem;
+            border-radius: 1.5rem;
+            margin: auto;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        #bnav {
+            width: 100%;
+            background-color: rgb(242, 241, 246);
+            display: flex;
+        }
+
+        #bnav>li {
+            width: 20%;
+            text-align: center;
+            padding-bottom: 0.7rem;
+        }
+
+        #bnav svg {
+            font-size: 1.9rem;
+            line-height: 2.3rem;
+            padding-top: 0.4rem;
+            padding-bottom: 0.4rem;
+        }
+
+        #bnav p {
+            color: rgb(112, 113, 115);
+            font-size: 1.1rem;
+            line-height: 1.8rem;
+        }
+
+        .head {
+            position: fixed;
+            display: flex;
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: 9;
+            background-color: #fff;
+        }
+
+        .head h1 {
+            flex-grow: 1000;
+            padding-top: 1rem;
+            padding-left: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .head svg {
+            font-size: 2.5rem;
+            padding-top: 1.25rem;
+            padding-right: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .search {
+            width: 94%;
+            background-color: rgb(235, 236, 238);
+            margin-left: 3%;
+            margin-right: 3%;
+            border-radius: 1rem;
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .search div {
+            font-size: 2rem;
+            color: rgb(147, 151, 154);
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1rem;
+            padding-right: 0.5rem;
+        }
+
+        .search p {
+            font-size: 1.8rem;
+            color: rgb(147, 151, 154);
+            line-height: 3.6rem;
+        }
+
+        .blue {
+            background-color: rgb(0, 136, 254);
+            color: #fff;
+        }
+
+        .green {
+            background-color: rgb(0, 176, 67);
+            color: #fff;
+        }
+
+        .orange {
+            background-color: rgb(255, 146, 1);
+            color: #fff;
+        }
+
+        .orange1 {
+            color: rgb(255, 146, 1);
+        }
+
+        .tubiao {
+            font-size: 2rem;
+            line-height: 4rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            margin-bottom: 0.4rem;
+            border-radius: 1rem;
+            margin-top: 0.4rem;
+        }
+
+        .right {
+            color: rgb(200, 200, 200);
+            flex-grow: 1;
+        }
+
+        .limp {
+            border-bottom: 1px solid rgb(228, 228, 230);
+            display: flex;
+            flex-grow: 1000;
+        }
+
+        .imp {
+            display: flex;
+        }
+
+        .imp p {
+            flex-grow: 1000;
+            font-size: 2rem;
+            line-height: 4.8rem;
+        }
+
+        .jiange {
+            width: 100%;
+            background-color: rgb(242, 241, 246);
+            height: 0.4rem;
+        }
+
+        .dnu {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            margin-bottom: 0.4rem;
+            margin-top: 0.4rem;
+        }
+
+        .dnu img {
+            width: 4rem;
+            height: 4rem;
+        }
+
+        .bcr {
+            background-color: rgb(242, 241, 246);
+            border-radius: 1rem;
+            margin-right: 0.5rem;
+        }
+
+        .xuexiao {
+            margin-top: 0.4rem;
+        }
+
+        .renzheng {
+            margin-top: 0.4rem;
+        }
+
+        .min>p {
+            font-size: 1.8rem;
+        }
+
+        .max {
+            flex-grow: 1000;
+        }
+
+        .limp .sma {
+            font-size: 1.4rem;
+            color: rgb(162, 163, 165);
+            flex-grow: 1;
+        }
+
+        .lxr {
+            background-color: rgb(242, 241, 246);
+            color: rgb(162, 163, 165);
+            font-size: 1.2rem;
+            line-height: 2.5rem;
+        }
+
+        .touxiang {
+            width: 4rem;
+            height: 4rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            margin-bottom: 0.4rem;
+            border-radius: 1rem;
+            margin-top: 0.4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <h1>通讯录</h1>
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-zengjiatianjiajiahao"></use>
+        </svg>
+    </div>
+    <a href="#">
+        <div class="search">
+            <div>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-31sousuo"></use>
+                </svg>
+            </div>
+            <p>搜索</p>
+        </div>
+    </a>
+    <div>
+        <a href="#">
+            <div class="imp">
+                <div class="tubiao orange">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-tianjiahaoyou"></use>
+                    </svg>
+                </div>
+                <div class="limp">
+                    <p>新的好友</p>
+                    <div class="tubiao right">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-youjiantou"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="imp">
+                <div class="tubiao blue">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-yonghu"></use>
+                    </svg>
+                </div>
+                <div class="limp">
+                    <p>我的好友</p>
+                    <div class="tubiao right">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-youjiantou"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="imp">
+                <div class="tubiao blue">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-haoyou"></use>
+                    </svg>
+                </div>
+                <div class="limp">
+                    <p>我的群组</p>
+                    <div class="tubiao right">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-youjiantou"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="imp">
+                <div class="tubiao blue">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-fuwutongji"></use>
+                    </svg>
+                </div>
+                <div class="limp">
+                    <p>服务窗</p>
+                    <div class="tubiao right">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-youjiantou"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="jiange"></div>
+    <div class="mid">
+        <div class="imp">
+            <div class="dnu">
+                <img src="../img/1568603143346.png">
+            </div>
+            <div>
+                <div class="xuexiao">
+                    <h2>大连东软信息学院</h2>
+                </div>
+                <div class="imp renzheng">
+                    <div class="imp bcr">
+                        <div class="orange1">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-Vrenzheng"></use>
+                            </svg>
+                        </div>
+                        <span>高级认证</span>
+                    </div>
+                    <div class="imp bcr">
+                        <div class="orange1">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-Vrenzheng"></use>
+                            </svg>
+                        </div>
+                        <span>钉钉指数：855</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="imp min">
+            <div class="dnu">
+                <img src="../img/tongxunlu.png">
+            </div>
+            <p>组织框架</p>
+            <div class="tubiao right">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-youjiantou"></use>
+                </svg>
+            </div>
+        </div>
+        <div class="imp min">
+            <div class="dnu">
+                <img src="../img/tongxunlu.png">
+            </div>
+            <p>2019级-计算机科学与技术-...</p>
+            <div class="tubiao right">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-youjiantou"></use>
+                </svg>
+            </div>
+        </div>
+        <div class="imp min">
+            <div class="dnu">
+                <img src="../img/tongxunlu.png">
+            </div>
+            <div class="limp">
+                <p class="max">更多</p>
+                <p class="sma">我的客户等</p>
+                <div class="tubiao right">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-youjiantou"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <a href="#">
+            <div class="imp">
+                <div class="tubiao blue">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-qita"></use>
+                    </svg>
+                </div>
+
+                <p>其他团队</p>
+                <div class="tubiao right">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-youjiantou"></use>
+                    </svg>
+                </div>
+
+            </div>
+        </a>
+    </div>
+    <div class="jiange"></div>
+    <a href="#">
+        <div class="imp">
+            <div class="tubiao green">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-chuangjianfeihangluxian1"></use>
+                </svg>
+            </div>
+
+            <p>创建加入企业/组织/团队</p>
+            <div class="tubiao right">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-youjiantou"></use>
+                </svg>
+            </div>
+
+        </div>
+    </a>
+    <div class="jiange"></div>
+    <div class="lxr">
+        <p>常用联系人</p>
+    </div>
+
+    <div class="bot">
+        <div class="heng"></div>
+        <ul id="bnav">
+            <li>
+                <a href="./xiaoxi.html">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-xiaoxi"></use>
+                        </svg>
+                        <p>消息</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./xiezuo.html">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-gongwenbao"></use>
+                        </svg>
+                        <p>协作</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./zhihuixiaoyuan.html">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-zhihuixiaoyuan"></use>
+                        </svg>
+                        <p>智慧校园</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./tongxunlu.html">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-tongxunlu"></use>
+                        </svg>
+                        <p>通讯录</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./wode1.html">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-wode"></use>
+                        </svg>
+                        <p>我的</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="lxrlist">
+        
+    </div>
+</body>
+<script>
+    var json = [{
+
+            img: "../img/touxiang.jpg",
+            type: "李帅龙",
+
+
+        },
+        {
+            img: "../img/QQ图片20211201154107.jpg",
+            type: "崔海涛",
+
+        },
+        {
+            img: "../img/touxiang.jpg",
+            type: "李帅龙",
+
+        },
+        {
+            img: "../img/touxiang.jpg",
+            type: "李帅龙",
+
+        }
+    ];
+    var jlist = document.querySelector(".lxrlist");
+    json.forEach(function (v, i) {
+        var nli = document.createElement("div"); /* 创建li元素 */
+
+        nli.innerHTML = `
+        <a href="#">
+            <div class="imp">
+                <div>
+                    <img class="touxiang" src="${v.img}" >
+                </div>
+                <div class="limp">
+                    <p>${v.type}</p>
+                    <div class="tubiao right">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-youjiantou"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </a>`;
+        //es6新的字符串语法，内部可包括引号，包括变量${}
+        jlist.appendChild(nli);
+        //在jlist的内部的最后增加nli。
+    });
+</script>
+
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./font_dingding/iconfont.js"></script>
+    <style>
+        form,
+        body,
+        h2 {
+            padding: 0;
+            margin: 0;
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+        .main{
+            width: 85%;
+            margin: auto;
+        }
+
+        .ddd {
+            margin-top: 30px;
+        }
+
+        #user,
+        #pwd {
+            border: none;
+            flex-grow: 1;
+            outline: none;
+        }
+
+        #fm>div {
+            border-bottom: 1px solid rgb(226, 227, 229);
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        #fm span {
+            font-size: 10px;
+        }
+
+        #fm svg {
+            margin-right: 20px;
+        }
+
+        #fm button {
+            border: none;
+            background-color: rgb(154, 208, 255);
+            padding: 7px 45%;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #fff;
+            font-weight: 530;
+            margin-top: 20px;
+        }
+        #fm div:nth-of-type(2) input{
+            width: 100%;
+        }
+
+        .head {
+            margin-top: 30px;
+        }
+
+        .head img {
+            width: 15%;
+        }
+       .shengming p{
+            font-size: 10px;
+            color: rgb(117, 118, 120);
+       }
+       .blue{
+           color: rgb(7, 135, 245);
+       }
+       .shengming span:nth-of-type(1){
+           font-size: 8px;
+           color: rgb(162, 162, 164);
+       }
+       .shengming span:nth-of-type(2){
+           font-size: 8px;      
+       }
+       .bm{
+           position: fixed;
+           width: 100%;
+           bottom: 0;
+           left: 0;
+       }
+       .bm>div{
+           margin: auto;
+           width: 85%;
+           text-align: center;
+       }
+       .bm div:nth-of-type(2){
+           display: flex;
+       }
+       
+       .bm div:nth-of-type(2) p{
+           text-align: center;
+           flex-grow: 1;
+           color: rgb(115, 119, 120);
+       }
+       .br{
+           border-right: 1px solid rgb(226, 227, 229);
+       }
+       .bm div:nth-of-type(3){
+           width: 100%;
+           display: flex;
+           background-color: rgb(240, 240, 241);
+       }
+       .bm div:nth-of-type(3) p{
+           text-align: center;
+           flex-grow: 1;
+       }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="head">
+            <div><img src="./img/钉钉logo图标.png" alt=""></div>
+            <div>
+                <h2>欢迎使用钉钉</h2>
+            </div>
+        </div>
+        <div class="ddd">
+            <form action="./view/wode1.html" name="fm" id="fm" onsubmit="return checkform()">
+                <div>
+                    <label for="user"><span>手机号码</span><br>+86
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-xiajiantou"></use>
+                        </svg>
+                    </label>
+                    <input type="text" placeholder="请输入手机号码" name="user" id="user">
+                </div>
+                <div>
+                    <label for="pwd"><span>密码</span><br></label>
+                    <input type="password" placeholder="请输入密码" name="pwd" id="pwd">
+                </div>
+                <button>登录</button>
+            </form>
+        </div>
+        <div class="shengming">
+            <p>忘记密码</p>
+            <div>
+                <svg class="icon blue" aria-hidden="true">
+                    <use xlink:href="#icon-c"></use>
+                </svg>
+                <span>我已阅读并同意：</span><span class="blue">服务协议,隐私权政策,法律声明</span>
+            </div>
+        </div>
+    </div>
+    <div class="bm">
+        <div>
+            <svg class="icon blue" aria-hidden="true">
+                <use xlink:href="#icon-zhifubaozhifu"></use>
+            </svg>
+            <span class="blue">支付宝快速登录</span>
+        </div>
+        <div>
+            <p class="br">专属账号</p>
+            <p class="br">注册账号</p>
+            <p>更多选项</p>
+        </div>
+        <div>
+            <p></p>
+            <p></p>
+            <p>收到一个会议号?</p>
+            <p class="blue">加入会议</p>
+            <p></p>
+            <p></p>
+        </div>
+    </div>
+    <script>
+        var user = document.getElementById("user");
+        var pwd = document.getElementById("pwd");
+        var button = document.getElementById("button");
+        user.onchange = checkuser;
+        function checkuser() {
+            if (user.value.length==11) {
+                
+                return 1;
+            } else {
+                alert("手机格式不正确，请重新输入");
+                return 0;
+            }
+        }
+        pwd.onchange = checkpwd; /*函数的名称，不是函数的调用*/
+        function checkpwd() {
+            if (pwd.value.length>6) {
+                return 1;
+            } else { 
+                alert("正确的密码应是6位以上，请重新输入");             
+                return 0;
+            }
+        }
+        
+        function checkform(){
+            var rs=checkuser()*checkpwd();
+            if(rs==0){
+                return false;
+            }
+            if(user.value==15504551891&&pwd.value==88888888){
+                alert("账号密码正确");
+            }else{
+                alert("手机号或密码不正确，请重新输入");
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
